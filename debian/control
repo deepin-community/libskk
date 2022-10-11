@@ -1,0 +1,106 @@
+Source: libskk
+Section: libs
+Priority: optional
+Maintainer: Debian Input Method Team <debian-input-method@lists.debian.org>
+Uploaders:
+ Boyuan Yang <byang@debian.org>,
+Build-Depends:
+ debhelper-compat (= 13),
+ gettext,
+ gobject-introspection,
+ libgee-0.8-dev,
+ libgirepository1.0-dev,
+ libjson-glib-dev,
+ libxkbcommon-dev,
+ valac (>= 0.14.2),
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Homepage: https://github.com/ueno/libskk
+Vcs-Git: https://salsa.debian.org/input-method-team/libskk.git
+Vcs-Browser: https://salsa.debian.org/input-method-team/libskk
+
+Package: gir1.2-skk-1.0
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${gir:Depends},
+ ${misc:Depends},
+Section: introspection
+Description: library to deal with Japanese kana-kanji conversion method - introspection data
+ Libskk is a library that provides GObject-based interface of Japanese
+ input methods.  Currently it supports SKK (Simple Kana Kanji) with
+ various typing rules including romaji-to-kana, AZIK, ACT, TUT-Code,
+ T-Code, and NICOLA.
+ .
+ This package contains the GObject introspection data.
+
+Package: libskk-common
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+Description: library to deal with Japanese kana-kanji conversion method - common files
+ Libskk is a library that provides GObject-based interface of Japanese
+ input methods.  Currently it supports SKK (Simple Kana Kanji) with
+ various typing rules including romaji-to-kana, AZIK, ACT, TUT-Code,
+ T-Code, and NICOLA.
+ .
+ This package contains common files.
+
+Package: libskk-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends:
+ gir1.2-skk-1.0 (= ${binary:Version}),
+ libgee-0.8-dev,
+ libjson-glib-dev,
+ libskk0 (= ${binary:Version}),
+ skkdic,
+ ${misc:Depends},
+Description: library to deal with Japanese kana-kanji conversion method - development
+ Libskk is a library that provides GObject-based interface of Japanese
+ input methods.  Currently it supports SKK (Simple Kana Kanji) with
+ various typing rules including romaji-to-kana, AZIK, ACT, TUT-Code,
+ T-Code, and NICOLA.
+ .
+ This package contains the library development files.
+
+Package: libskk-utils
+Architecture: any
+Depends:
+ libskk0 (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Replaces:
+ libskk-dev (<< 1.0.3~),
+Breaks:
+ libskk-dev (<< 1.0.3~),
+Description: program that emulates Japanese SKK input method
+ Libskk is a library that provides GObject-based interface of Japanese
+ input methods.  Currently it supports SKK (Simple Kana Kanji) with
+ various typing rules including romaji-to-kana, AZIK, ACT, TUT-Code,
+ T-Code, and NICOLA.
+ .
+ This package provides the skk tool that reads key sequences from the
+ standard input and converts them to Japanese text according to SKK
+ Japanese input method (Simple Kana to Kanji conversion program).
+
+Package: libskk0
+Architecture: any
+Multi-Arch: same
+Depends:
+ libskk-common (= ${source:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Pre-Depends:
+ ${misc:Pre-Depends},
+Breaks:
+ ibus-skk (<< 1.4.0),
+Description: library to deal with Japanese kana-kanji conversion method
+ Libskk is a library that provides GObject-based interface of Japanese
+ input methods.  Currently it supports SKK (Simple Kana Kanji) with
+ various typing rules including romaji-to-kana, AZIK, ACT, TUT-Code,
+ T-Code, and NICOLA.
+ .
+ This package contains the shared library.
