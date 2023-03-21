@@ -1,8 +1,12 @@
-libskk (1.0.5-2+u001) UNRELEASED; urgency=medium
+libskk (1.0.5-2deepin) UNRELEASED; urgency=medium
 
+  [ Debian Input Method Team ]
   * update
 
- -- Debian Input Method Team <debian-input-method@lists.debian.org>  Fri, 22 Apr 2022 15:30:57 +0800
+  [ Yutao Meng ]
+  * Regulate version name
+
+ -- Yutao Meng <mengyutao@uniontech.com>  Tue, 21 Mar 2023 10:09:58 +0800
 
 libskk (1.0.5-2) unstable; urgency=medium
 
